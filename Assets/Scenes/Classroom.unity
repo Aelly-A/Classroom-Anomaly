@@ -10627,6 +10627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a2e43d5f44dde45bf990ab3da6e042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anomalies:
+  - {fileID: 1800684128}
+  anomalyIsActive: 0
 --- !u!1001 &1910216959
 PrefabInstance:
   m_ObjectHideFlags: 0
