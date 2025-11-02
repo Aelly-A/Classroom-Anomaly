@@ -8,7 +8,7 @@ public class AnomalyManager : MonoBehaviour
     public List<GameObject> anomalies; // This is a public list so add to it via Unity's GUI
     public bool anomalyIsActive = false; // This needs to be read by the RunManager to determine if the player won that round
 
-    List<GameObject> usedAnomalies; // Private list to keep track of anomalies used so far
+    List<GameObject> usedAnomalies = new List<GameObject>(); // Private list to keep track of anomalies used so far
 
     void Start()
     {
@@ -26,6 +26,7 @@ public class AnomalyManager : MonoBehaviour
     public void StartRound()
     {
         anomalyIsActive = !(Random.Range(0, 4) == 1); // 1 in 4 chance of no anomaly
+        Debug.Log("Anomaly is active: " + anomalyIsActive);
 
         if (anomalyIsActive)
         {
@@ -61,7 +62,7 @@ public class AnomalyManager : MonoBehaviour
         DeactivateAllAnomalies();
         StartRound();
     }
-    
+
     public void ResetGame()
     {
         ResetAnomalyTracker();
