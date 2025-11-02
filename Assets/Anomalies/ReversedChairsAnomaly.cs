@@ -31,7 +31,6 @@ public class ReversedChairsAnomaly : Anomaly
 
     public override void Deactivate()
     {
-        base.Deactivate();
         if (chairs == null)
         {
             return;
@@ -41,6 +40,6 @@ public class ReversedChairsAnomaly : Anomaly
         {
             chair.transform.Rotate(0f, -180f, 0f, Space.World);
         }
-
+        base.Deactivate();
     }
 }

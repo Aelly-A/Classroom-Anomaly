@@ -12,6 +12,9 @@ public class AnomalyManager : MonoBehaviour
 
     void Start()
     {
+        // Random seed for testing in Unity editor
+        Random.InitState(System.DateTime.Now.Millisecond);
+
         // Make sure everything is disabled at the start
         DeactivateAllAnomalies();
         StartRound();

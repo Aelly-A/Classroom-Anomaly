@@ -9930,6 +9930,7 @@ Transform:
   - {fileID: 1908859578}
   - {fileID: 1800684129}
   - {fileID: 20768379}
+  - {fileID: 1607149721}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1560101303 stripped
@@ -10360,6 +10361,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991e8973513e2ad408232c1afeb3a9df, type: 3}
+--- !u!1 &1607149720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607149721}
+  - component: {fileID: 1607149722}
+  m_Layer: 0
+  m_Name: Alex Resize Anomaly
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1607149721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607149720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1559708487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607149722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607149720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82d8cea3e994f44c8fe7936b2ba5f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profAlex: {fileID: 1906631457}
+  resizeSpeed: 0.05
+  maxScaleMultiplier: 3
+  shrinkAnomaly: 0
 --- !u!1 &1612651417
 GameObject:
   m_ObjectHideFlags: 0
@@ -12163,7 +12212,7 @@ GameObject:
   - component: {fileID: 1906631458}
   m_Layer: 0
   m_Name: PLACEHOLDER Prof Alex
-  m_TagString: Untagged
+  m_TagString: Professor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12253,7 +12302,7 @@ Transform:
   m_GameObject: {fileID: 1906631457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5193248, y: -0.50168645, z: -4.0828676}
+  m_LocalPosition: {x: -3.5193253, y: -0.50168645, z: -4.0828676}
   m_LocalScale: {x: 0.75, y: 1.27, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12306,6 +12355,7 @@ MonoBehaviour:
   anomalies:
   - {fileID: 1800684128}
   - {fileID: 20768378}
+  - {fileID: 1607149720}
   anomalyIsActive: 0
 --- !u!1001 &1910216959
 PrefabInstance:
