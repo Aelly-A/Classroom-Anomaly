@@ -14,14 +14,13 @@ public class AlexResizeAnomaly : Anomaly
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        profAlex.SetActive(true);
+        startingScale = profAlex.transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Scale: " + profAlex.transform.localScale);
-        Debug.Log(stillResizing);
         if (!stillResizing)
         {
             return;
@@ -50,17 +49,6 @@ public class AlexResizeAnomaly : Anomaly
     public override void Activate()
     {
         base.Activate();
-        profAlex.SetActive(true);
-        startingScale = profAlex.transform.localScale;
-
-        // Fix for not being able to get professor object scale
-        if (profAlex.transform.localScale.sqrMagnitude < 0.001f)
-        {
-            startingScale = new Vector3(0.75f, 1.27f, 0.75f);
-            profAlex.transform.localScale = startingScale;
-        }
-
-        Debug.Log("Starting scale: " + startingScale);
         stillResizing = true;
     }
 
