@@ -31,10 +31,10 @@ public class ProjectorAnomaly : Anomaly
     void Blink()
     {
         count++; // Kind of a janky way to have this blink at an uneven rate
-        gameObject.SetActive(count % 4 == 0);        
+        gameObject.SetActive(count % 8 == 0);        
         if (count == 64)
         {
-            count = 0;
+            count = Random.Range(0, 2);
         }
     }
 }
