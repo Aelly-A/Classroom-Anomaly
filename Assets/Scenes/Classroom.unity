@@ -12840,6 +12840,7 @@ MonoBehaviour:
   - {fileID: 1607149720}
   - {fileID: 224483957}
   - {fileID: 787747664}
+  - {fileID: 1516905059}
   anomalyIsActive: 0
 --- !u!1001 &1910216959
 PrefabInstance:
