@@ -1,6 +1,4 @@
-using UnityEditor.UI;
 using UnityEngine;
-using System.Collections;
 
 public class ProjectorAnomaly : Anomaly
 {
