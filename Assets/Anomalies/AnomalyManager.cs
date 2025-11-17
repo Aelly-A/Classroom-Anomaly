@@ -9,6 +9,7 @@ public class AnomalyManager : MonoBehaviour
     public bool anomalyIsActive = false; // This needs to be read by the RunManager to determine if the player won that round
 
     List<GameObject> usedAnomalies = new List<GameObject>(); // Private list to keep track of anomalies used so far
+    public GameObject activeAnomaly;
 
     void Start()
     {
@@ -40,17 +41,21 @@ public class AnomalyManager : MonoBehaviour
         {
             ActivateAnAnomaly();
         }
+        else
+        {
+            activeAnomaly = new GameObject();
+        }
     }
 
     void ActivateAnAnomaly()
     {
-        GameObject chosenAnomalyObject = anomalies[Random.Range(0, anomalies.Count)];
-        Anomaly chosenAnomaly = chosenAnomalyObject.GetComponent<Anomaly>();
+        activeAnomaly = anomalies[Random.Range(0, anomalies.Count)];
+        Anomaly chosenAnomaly = activeAnomaly.GetComponent<Anomaly>();
         Debug.Log("Randomly chosen Anomaly: " + chosenAnomaly);
 
         chosenAnomaly.Activate(); // Activate the anomaly
-        usedAnomalies.Add(chosenAnomalyObject);
-        anomalies.Remove(chosenAnomalyObject);
+        usedAnomalies.Add(activeAnomaly);
+        anomalies.Remove(activeAnomaly);
     }
 
     public void DeactivateAllAnomalies()
