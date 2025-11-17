@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: e5860c25af9af8b49bd5df070e4c9ce9, type: 3}
       propertyPath: m_Name
-      value: door_frame
+      value: door_frame_left
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e5860c25af9af8b49bd5df070e4c9ce9, type: 3}
       propertyPath: m_TagString
@@ -5121,19 +5121,7 @@ CharacterController:
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.93, z: 0}
---- !u!114 &600072429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600072422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b8b3f17363ac34387db7ff2840d92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!136 &600072430
+--- !u!136 &600072429
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5153,9 +5141,25 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2.0767713
+  m_Height: 2.0383983
   m_Direction: 1
-  m_Center: {x: 0, y: 0.96769214, z: 0}
+  m_Center: {x: 0, y: 0.95928097, z: 0}
+--- !u!114 &600072430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600072422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b8b3f17363ac34387db7ff2840d92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStartPosition: {x: 25, y: 0, z: 0}
+  runCounter: 0
+  totalRuns: 7
+  anomalyManager: {fileID: 1908859577}
 --- !u!1 &631349995
 GameObject:
   m_ObjectHideFlags: 0
@@ -5637,7 +5641,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: e5860c25af9af8b49bd5df070e4c9ce9, type: 3}
       propertyPath: m_Name
-      value: door_frame
+      value: door_frame_right
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e5860c25af9af8b49bd5df070e4c9ce9, type: 3}
       propertyPath: m_TagString
@@ -8694,7 +8698,7 @@ GameObject:
   - component: {fileID: 1099841080}
   m_Layer: 8
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13663,7 +13667,7 @@ Transform:
   m_GameObject: {fileID: 1848772368}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7639631, z: -0, w: 0.64526004}
-  m_LocalPosition: {x: 19.93, y: 0.189, z: -4.76}
+  m_LocalPosition: {x: 25, y: 0, z: 0}
   m_LocalScale: {x: 0.49, y: 1, z: 0.49}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14232,6 +14236,7 @@ MonoBehaviour:
   - {fileID: 787747664}
   - {fileID: 1516905059}
   anomalyIsActive: 0
+  activeAnomaly: {fileID: 0}
 --- !u!1001 &1910216959
 PrefabInstance:
   m_ObjectHideFlags: 0
