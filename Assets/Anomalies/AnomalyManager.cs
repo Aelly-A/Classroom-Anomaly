@@ -31,6 +31,11 @@ public class AnomalyManager : MonoBehaviour
         anomalyIsActive = !(Random.Range(0, 4) == 1); // 1 in 4 chance of no anomaly
         Debug.Log("Anomaly is active: " + anomalyIsActive);
 
+        if (anomalies.Count == 0)
+        {
+            ResetAnomalyTracker();
+        }
+
         if (anomalyIsActive)
         {
             ActivateAnAnomaly();
@@ -48,7 +53,7 @@ public class AnomalyManager : MonoBehaviour
         anomalies.Remove(chosenAnomalyObject);
     }
 
-    void DeactivateAllAnomalies()
+    public void DeactivateAllAnomalies()
     {
         anomalies.ForEach(anomalyObject => anomalyObject.GetComponent<Anomaly>().Deactivate());
         usedAnomalies.ForEach(anomalyObject => anomalyObject.GetComponent<Anomaly>().Deactivate());
@@ -58,6 +63,7 @@ public class AnomalyManager : MonoBehaviour
     public void ResetAnomalyTracker()
     {
         usedAnomalies.ForEach(anomaly => anomalies.Add(anomaly));
+        usedAnomalies = new List<GameObject>();
     }
 
     public void ResetRound()
