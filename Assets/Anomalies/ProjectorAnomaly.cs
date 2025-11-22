@@ -3,6 +3,8 @@ using UnityEngine;
 public class ProjectorAnomaly : Anomaly
 {
     int count = 0;
+    public GameObject whiteboardLeft;
+    public GameObject whiteboardRight;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +19,8 @@ public class ProjectorAnomaly : Anomaly
     public override void Activate()
     {
         Debug.Log("Projector Activated");
+        whiteboardLeft.SetActive(false);
+        whiteboardRight.SetActive(false);
         InvokeRepeating(nameof(Blink), 0f, 1f);
     }
 
@@ -24,6 +28,8 @@ public class ProjectorAnomaly : Anomaly
     {
         CancelInvoke();
         gameObject.SetActive(false);
+        whiteboardLeft.SetActive(true);
+        whiteboardRight.SetActive(true);
     }
 
     void Blink()
