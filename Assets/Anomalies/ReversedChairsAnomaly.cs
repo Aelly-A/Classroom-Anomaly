@@ -5,6 +5,7 @@ using System.Collections;
 public class ReversedChairsAnomaly : Anomaly
 {
     GameObject[] chairs;
+    private bool chairsAreFlipped = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,11 +28,12 @@ public class ReversedChairsAnomaly : Anomaly
             chair.transform.Rotate(0f, 180f, 0f, Space.World);
         }
         Debug.Log($"Rotated {chairs.Length} by 180 degrees");
+        chairsAreFlipped = true;
     }
 
     public override void Deactivate()
     {
-        if (chairs == null)
+        if (chairs == null || !chairsAreFlipped)
         {
             return;
         }
@@ -41,5 +43,6 @@ public class ReversedChairsAnomaly : Anomaly
             chair.transform.Rotate(0f, -180f, 0f, Space.World);
         }
         base.Deactivate();
+        chairsAreFlipped = false;
     }
 }
