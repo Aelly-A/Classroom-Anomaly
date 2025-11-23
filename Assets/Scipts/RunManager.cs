@@ -62,7 +62,7 @@ public class RunManager : MonoBehaviour
         if (playerMadeRightChoice)
         {
             runCounter ++;
-            anomalyManager.GetComponent<AnomalyManager>().ResetRound();
+            anomalyManager.GetComponent<AnomalyManager>().ResetRound(runCounter);
         }
         else // Player chose wrong door
         {
@@ -73,7 +73,7 @@ public class RunManager : MonoBehaviour
         // playerHasWon
         if (runCounter == totalRuns)
         {
-            anomalyManager.GetComponent<AnomalyManager>().ResetRound();
+            anomalyManager.GetComponent<AnomalyManager>().ResetRound(runCounter);
             // Player win screen
         }
 

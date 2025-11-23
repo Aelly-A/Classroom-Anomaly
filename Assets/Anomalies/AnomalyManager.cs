@@ -26,9 +26,9 @@ public class AnomalyManager : MonoBehaviour
 
     }
 
-    public void StartRound()
+    public void StartRound(int roundNumber=0)
     {
-        anomalyIsActive = !(Random.Range(0, 4) == 1); // 1 in 4 chance of no anomaly
+        anomalyIsActive = roundNumber == 0 ? false : !(Random.Range(0, 4) == 1); // 1 in 4 chance of no anomaly
         Debug.Log("Anomaly is active: " + anomalyIsActive);
 
         if (anomalyIsActive)
@@ -66,10 +66,10 @@ public class AnomalyManager : MonoBehaviour
         usedAnomalies.Clear();
     }
 
-    public void ResetRound()
+    public void ResetRound(int roundNumber=0)
     {
         DeactivateAllAnomalies();
-        StartRound();
+        StartRound(roundNumber);
     }
 
     public void ResetGame()
