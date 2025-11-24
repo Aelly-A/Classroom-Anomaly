@@ -4728,6 +4728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 371614076}
+  - component: {fileID: 371614077}
   m_Layer: 0
   m_Name: OIIAII cat Anomaly
   m_TagString: Untagged
@@ -4752,6 +4753,103 @@ Transform:
   - {fileID: 1661245956}
   m_Father: {fileID: 1559708487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &371614077
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371614075}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &377013063
 GameObject:
   m_ObjectHideFlags: 0
@@ -17720,6 +17818,9 @@ PrefabInstance:
       addedObject: {fileID: 1651567732}
     - targetCorrespondingSourceObject: {fileID: 3503167532966410781, guid: 9bd72731ebe2248478ba4849c274a43b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1651567734}
+    - targetCorrespondingSourceObject: {fileID: 3503167532966410781, guid: 9bd72731ebe2248478ba4849c274a43b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1651567731}
   m_SourcePrefab: {fileID: 100100000, guid: 9bd72731ebe2248478ba4849c274a43b, type: 3}
 --- !u!1 &1571878599
@@ -18154,10 +18255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82d8cea3e994f44c8fe7936b2ba5f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profAlex: {fileID: 0}
+  profAlex: {fileID: 1651567729}
   resizeSpeed: 0.05
   maxScaleMultiplier: 3
-  shrinkAnomaly: 0
+  shrinkAnomaly: 1
 --- !u!1 &1612651417
 GameObject:
   m_ObjectHideFlags: 0
@@ -19232,8 +19333,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 429061569}
   npcLines:
-  - What are you still doing here?
-  - You failed the class!
   - Class has already ended. See you next time!
 --- !u!136 &1651567733
 CapsuleCollider:
@@ -19258,6 +19357,27 @@ CapsuleCollider:
   m_Height: 1.7234153
   m_Direction: 1
   m_Center: {x: 0, y: 0.91985124, z: 0}
+--- !u!65 &1651567734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651567729}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3819156, y: 2.562897, z: 2.0189598}
+  m_Center: {x: -0.054737087, y: 0.78145045, z: -0.5094786}
 --- !u!1001 &1656003477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26681,6 +26801,7 @@ MonoBehaviour:
   - {fileID: 2012662998}
   - {fileID: 270728006}
   - {fileID: 371614075}
+  - {fileID: 2092797103}
   anomalyIsActive: 0
 --- !u!1001 &1910216959
 PrefabInstance:
@@ -27394,13 +27515,13 @@ Transform:
   - {fileID: 213997737}
   - {fileID: 1415372341}
   - {fileID: 1000438058}
+  - {fileID: 1004315432}
   - {fileID: 1253899107}
   - {fileID: 4288267492195283651}
   - {fileID: 1384369466}
   - {fileID: 1505410983}
   - {fileID: 5284954247632944784}
   - {fileID: 2146936984}
-  - {fileID: 1004315432}
   - {fileID: 1541701155}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29099,6 +29220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2092797104}
+  - component: {fileID: 2092797105}
   m_Layer: 0
   m_Name: == Gomez ==
   m_TagString: Untagged
@@ -29122,6 +29244,18 @@ Transform:
   - {fileID: 1651567730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2092797105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092797103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5c8662bfe66e64a8926be2fdfc6b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2105318568
 GameObject:
   m_ObjectHideFlags: 0
