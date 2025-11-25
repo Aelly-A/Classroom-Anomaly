@@ -1693,6 +1693,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0060673803, y: 0.18654984, z: -0.08389494}
     m_Extent: {x: 0.1362743, y: 0.19756079, z: 0.36209038}
   m_DirtyAABB: 0
+--- !u!114 &137019064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137019059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea1576934b2c584086dac9070ff1c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carAudioSource: {fileID: 371614077}
+  triggerTime: 2
+  normalSpinSpeed: 90
+  fancySpinSpeed: 360
 --- !u!1 &142024513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,22 +1845,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142024513}
   m_CullTransparentMesh: 1
---- !u!114 &137019064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137019059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ea1576934b2c584086dac9070ff1c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carAudioSource: {fileID: 371614077}
-  triggerTime: 2
-  normalSpinSpeed: 90
-  fancySpinSpeed: 360
 --- !u!1 &150211407
 GameObject:
   m_ObjectHideFlags: 0
@@ -5023,6 +5023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371614076}
   - component: {fileID: 371614077}
+  - component: {fileID: 371614078}
   m_Layer: 0
   m_Name: OIIAII cat Anomaly
   m_TagString: Untagged
@@ -5144,6 +5145,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &371614078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371614075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a77278156fb16c4bbbff3116ef3b7af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &377013063
 GameObject:
   m_ObjectHideFlags: 0
@@ -31647,6 +31660,18 @@ Transform:
   - {fileID: 1651567730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2092797105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092797103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5c8662bfe66e64a8926be2fdfc6b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2099306788
 GameObject:
   m_ObjectHideFlags: 0
@@ -31789,18 +31814,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099306788}
   m_CullTransparentMesh: 1
---- !u!114 &2092797105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092797103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5c8662bfe66e64a8926be2fdfc6b8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2105318568
 GameObject:
   m_ObjectHideFlags: 0
