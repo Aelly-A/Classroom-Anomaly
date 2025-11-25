@@ -1,17 +1,18 @@
 using UnityEngine;
 
-public class OIIAII_anomaly : MonoBehaviour
+public class OIIAII_anomaly : Anomaly
 {
 
     void Start()
     {
     }
- public void Activate()
+
+    public override void Activate()
     {
         SetChildrenActive(true);
     }
 
-    public void Deactivate()
+    public override void Deactivate()
     {
         SetChildrenActive(false);
     }

@@ -29000,7 +29000,6 @@ MonoBehaviour:
   - {fileID: 2012662998}
   - {fileID: 270728006}
   - {fileID: 371614075}
-  - {fileID: 2092797103}
   anomalyIsActive: 0
 --- !u!1001 &1910216959
 PrefabInstance:
