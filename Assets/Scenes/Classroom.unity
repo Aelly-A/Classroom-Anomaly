@@ -1610,9 +1610,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carAudioSource: {fileID: 371614077}
   catParticles: {fileID: 1661245958}
+  player: {fileID: 600072423}
   triggerTime: 2
   particleStart: 45.301
-  particleDuration: 3
+  particleDuration: 5
   normalSpinSpeed: 900
   slowSpinSpeed: 400
 --- !u!135 &137019065

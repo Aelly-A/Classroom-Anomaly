@@ -5,6 +5,7 @@ public class Car_anomaly : MonoBehaviour
     [Header("References")]
     public AudioSource carAudioSource;
     public ParticleSystem catParticles;
+    public Transform player;
 
     [Header("Timing")]
     public float triggerTime = 2f;
@@ -18,6 +19,13 @@ public class Car_anomaly : MonoBehaviour
     private bool sequenceRunning = false;
     private bool sequenceLocked = false;   // becomes true after triggerTime
     private bool playerInside = false;
+
+    private Quaternion originalRotation;
+
+    void Start()
+    {
+        originalRotation = transform.rotation;
+    }
 
     void Update()
     {
@@ -83,6 +91,7 @@ public class Car_anomaly : MonoBehaviour
     {
         sequenceRunning = false;
         sequenceTime = 0f;
+        ReturnToOriginalRotation();
 
         if (carAudioSource != null)
         {
@@ -118,10 +127,19 @@ public class Car_anomaly : MonoBehaviour
 
         // BEFORE triggerTime → only spin if player inside
         if (!sequenceLocked && !playerInside)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
-        // 0 - 1.76s = normal spin
-        if (t < 1.76f)
+        // 0 - 0.216s = no spin (2.184s)
+        if (t < 0.216f) 
+        {
+            ReturnToOriginalRotation();
+            return;
+        }
+        // 0.216 - 1.740s = normal spin
+        if (t < 1.740f)
         {
             RotateNormal();
             return;
@@ -129,7 +147,10 @@ public class Car_anomaly : MonoBehaviour
 
         // 1.76 - 3.044s = no spin (2.184s)
         if (t < 3.066f)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
         // 3.944 - 5.087s = slow spin (1.143s)
         if (t < 5.230f)
@@ -140,7 +161,10 @@ public class Car_anomaly : MonoBehaviour
 
         // 5.087 - 6.262s = no spin (1.175s)
         if (t < 6.262f)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
         // 6.262 - 7.963s = normal spin (1.701s)
         if (t < 8.140f)
@@ -151,7 +175,10 @@ public class Car_anomaly : MonoBehaviour
 
         // 7.963 - 9.655s = no spin (1.692s)
         if (t < 9.655f)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
         // 9.655 - 11.255s = normal spin (1.6s)
         if (t < 11.255f)
@@ -162,7 +189,10 @@ public class Car_anomaly : MonoBehaviour
 
         // 11.255 - 12.868s = no spin (1.613s)
         if (t < 12.868f)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
         // 12.868 - 14.654s = normal spin (1.786s)
         if (t < 14.654f)
@@ -173,7 +203,10 @@ public class Car_anomaly : MonoBehaviour
 
         // 14.654 - 16.050s = no spin (1.396s)
         if (t < 16.050f)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
         // 16.050 - 17.532s = normal spin (1.482s)
         if (t < 17.532f)
@@ -184,7 +217,10 @@ public class Car_anomaly : MonoBehaviour
 
         // 17.532 - 19.251s = no spin (1.719s)
         if (t < 19.251f)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
         // 19.251 - 20.809s = normal spin (1.558s)
         if (t < 20.809f)
@@ -195,7 +231,10 @@ public class Car_anomaly : MonoBehaviour
 
         // 20.809 - 22.461s = no spin (1.652s)
         if (t < 22.461f)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
         // 22.461 - 24 .059s = normal spin (2.598s)
         if (t < 24.059f)
@@ -206,7 +245,10 @@ public class Car_anomaly : MonoBehaviour
 
         // 24.059 - 25.656s = no spin (1.652s)
         if (t < 25.656f)
+        {
+            ReturnToOriginalRotation();
             return;
+        }
 
         // 25.059 - 29.653s = 
         if (t < 29.653f)
@@ -233,6 +275,11 @@ public class Car_anomaly : MonoBehaviour
         }
 
         // After 58.126s → sequence done, but cat stays visible
+        if (t >= 58.126f)
+        {
+            ReturnToOriginalRotation();
+            return;
+        }
     }
 
     private void RotateNormal()
@@ -243,5 +290,16 @@ public class Car_anomaly : MonoBehaviour
     private void RotateSlow()
     {
         transform.Rotate(0f, slowSpinSpeed * Time.deltaTime, 0f);
+    }
+
+    private void ReturnToOriginalRotation()
+    {
+        //transform.rotation = originalRotation;
+        if (player == null) return;
+
+        Vector3 targetPos = player.position;
+        targetPos.y = transform.position.y; // keep cat upright (no tilting)
+
+        transform.LookAt(targetPos);
     }
 }
