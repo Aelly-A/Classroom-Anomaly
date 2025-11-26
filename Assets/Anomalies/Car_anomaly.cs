@@ -258,7 +258,16 @@ public class Car_anomaly : MonoBehaviour
         }
 
         // 29.653 - 32.058 - cat continues to spin cat rises up
+        if (t < 32.058f)
+        {
+            float riseSpeed = 0.6f;
+            RotateNormal();
+            transform.position += Vector3.up * riseSpeed * Time.deltaTime;
+            return;
+        }
         // TODO: y axis transform goes up
+
+        //
 
         // 45.301s = normal spin (19.648s)
         if (t < 45.301f)
