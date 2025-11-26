@@ -1492,7 +1492,7 @@ GameObject:
   - component: {fileID: 137019060}
   - component: {fileID: 137019063}
   - component: {fileID: 137019062}
-  - component: {fileID: 137019061}
+  - component: {fileID: 137019065}
   - component: {fileID: 137019064}
   m_Layer: 0
   m_Name: OiiaioooooiaiMY LOVE MY DEAREST GATITO
@@ -1516,27 +1516,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 371614076}
   m_LocalEulerAnglesHint: {x: 0, y: 57.132, z: 0}
---- !u!65 &137019061
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137019059}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0828977, y: 0.64711684, z: 1.0934458}
-  m_Center: {x: 0.08485845, y: 0.31255573, z: 0.03782758}
 --- !u!136 &137019062
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1630,9 +1609,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carAudioSource: {fileID: 371614077}
+  catParticles: {fileID: 1661245958}
   triggerTime: 2
-  normalSpinSpeed: 90
-  fancySpinSpeed: 360
+  particleStart: 45.301
+  particleDuration: 3
+  normalSpinSpeed: 900
+  slowSpinSpeed: 400
+--- !u!135 &137019065
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137019059}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.09
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &142024513
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,7 +2275,7 @@ Transform:
   m_GameObject: {fileID: 208365249}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.109, z: 0}
+  m_LocalPosition: {x: 0.13000037, y: 2.109, z: 0.7900006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7909,7 +7912,7 @@ Transform:
   m_GameObject: {fileID: 600072422}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.13, y: 0, z: 0.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8124,10 +8127,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9861417
+  m_Radius: 1.7965273
   m_Height: 2.0383983
   m_Direction: 1
-  m_Center: {x: 0.055834495, y: 0.95928097, z: 0.031934038}
+  m_Center: {x: 0.0000000014094415, y: 0.95928097, z: 0.35832912}
 --- !u!114 &600072430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18273,7 +18276,7 @@ Transform:
   m_GameObject: {fileID: 1446487054}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.109, z: 0}
+  m_LocalPosition: {x: 0.13000037, y: 2.109, z: 0.7900006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21587,7 +21590,7 @@ Transform:
   m_GameObject: {fileID: 1661245955}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10.55, y: 1.33, z: -0.63}
+  m_LocalPosition: {x: 10.55, y: -1.24, z: -0.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21753,7 +21756,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -22309,7 +22312,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 25, y: 20, z: 15}
+    m_Scale: {x: 35.62, y: 20, z: 15}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -23128,7 +23131,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -23291,7 +23294,7 @@ ParticleSystem:
     orbitalX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -23344,7 +23347,7 @@ ParticleSystem:
     orbitalY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -23397,7 +23400,7 @@ ParticleSystem:
     orbitalZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -23662,7 +23665,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2

@@ -3,32 +3,35 @@ using UnityEngine;
 public class Car_anomaly : MonoBehaviour
 {
     [Header("References")]
-    public AudioSource carAudioSource;   // AudioSource with clip already assigned
+    public AudioSource carAudioSource;
+    public ParticleSystem catParticles;
 
-    [Header("Settings")]
-    public float triggerTime = 2f;       // Time player must stay to activate fancy mode
-    public float normalSpinSpeed = 90f;  // degrees per second
-    public float fancySpinSpeed = 360f;  // faster spin
+    [Header("Timing")]
+    public float triggerTime = 2f;
+    public float particleStart = 45.301f;
+    public float particleDuration = 12.825f;
 
+    public float normalSpinSpeed = 720f;
+    public float slowSpinSpeed = 90f;
+
+    private float sequenceTime = 0f;
+    private bool sequenceRunning = false;
+    private bool sequenceLocked = false;   // becomes true after triggerTime
     private bool playerInside = false;
-    private bool fancyMode = false;
-    private float insideTimer = 0f;
 
     void Update()
     {
-        if (playerInside && !fancyMode)
+        // If sequence is running (activated or past trigger)
+        if (sequenceRunning)
         {
-            insideTimer += Time.deltaTime;
+            sequenceTime += Time.deltaTime;
 
-            if (insideTimer >= triggerTime)
-                ActivateFancyMode();
-        }
+            // Lock sequence once we cross trigger time
+            if (sequenceTime >= triggerTime)
+                sequenceLocked = true;
 
-        // Spin the cat (car) in Y-axis if player is inside
-        if (playerInside)
-        {
-            float speed = fancyMode ? fancySpinSpeed : normalSpinSpeed;
-            transform.Rotate(0f, speed * Time.deltaTime, 0f);
+            UpdateParticles();
+            UpdateCatSpin();
         }
     }
 
@@ -38,11 +41,12 @@ public class Car_anomaly : MonoBehaviour
             return;
 
         playerInside = true;
-        insideTimer = 0f;
 
-        // Play audio normally (no loop yet)
-        carAudioSource.loop = false;
-        carAudioSource.Play();
+        // If sequence already locked, re-entering does nothing
+        if (sequenceLocked)
+            return;
+
+        StartSequence();
     }
 
     private void OnTriggerExit(Collider other)
@@ -50,23 +54,194 @@ public class Car_anomaly : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        ResetEvent();
-    }
-
-    private void ActivateFancyMode()
-    {
-        fancyMode = true;
-
-        // Just turn looping on — DO NOT restart audio
-        carAudioSource.loop = true;
-    }
-
-    private void ResetEvent()
-    {
         playerInside = false;
-        fancyMode = false;
-        insideTimer = 0f;
 
-        carAudioSource.Stop();
+        if (sequenceLocked)
+            return;
+
+        if (sequenceTime < triggerTime)
+            ResetSequence();
+    }
+
+    private void StartSequence()
+    {
+        sequenceRunning = true;
+        sequenceTime = 0f;
+
+        if (carAudioSource != null)
+        {
+            carAudioSource.Stop();
+            carAudioSource.time = 0f;
+            carAudioSource.Play();
+        }
+
+        if (catParticles != null)
+            catParticles.Stop();
+    }
+
+    private void ResetSequence()
+    {
+        sequenceRunning = false;
+        sequenceTime = 0f;
+
+        if (carAudioSource != null)
+        {
+            carAudioSource.Stop();
+            carAudioSource.time = 0f;
+        }
+
+        if (catParticles != null)
+            catParticles.Stop();
+    }
+
+    private void UpdateParticles()
+    {
+        if (catParticles == null)
+            return;
+
+        if (sequenceTime >= particleStart &&
+            sequenceTime < particleStart + particleDuration)
+        {
+            if (!catParticles.isPlaying)
+                catParticles.Play();
+        }
+        else
+        {
+            if (catParticles.isPlaying)
+                catParticles.Stop();
+        }
+    }
+
+    private void UpdateCatSpin()
+    {
+        float t = sequenceTime;
+
+        // BEFORE triggerTime → only spin if player inside
+        if (!sequenceLocked && !playerInside)
+            return;
+
+        // 0 - 1.76s = normal spin
+        if (t < 1.76f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 1.76 - 3.044s = no spin (2.184s)
+        if (t < 3.066f)
+            return;
+
+        // 3.944 - 5.087s = slow spin (1.143s)
+        if (t < 5.230f)
+        {
+            RotateSlow();
+            return;
+        }
+
+        // 5.087 - 6.262s = no spin (1.175s)
+        if (t < 6.262f)
+            return;
+
+        // 6.262 - 7.963s = normal spin (1.701s)
+        if (t < 8.140f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 7.963 - 9.655s = no spin (1.692s)
+        if (t < 9.655f)
+            return;
+
+        // 9.655 - 11.255s = normal spin (1.6s)
+        if (t < 11.255f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 11.255 - 12.868s = no spin (1.613s)
+        if (t < 12.868f)
+            return;
+
+        // 12.868 - 14.654s = normal spin (1.786s)
+        if (t < 14.654f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 14.654 - 16.050s = no spin (1.396s)
+        if (t < 16.050f)
+            return;
+
+        // 16.050 - 17.532s = normal spin (1.482s)
+        if (t < 17.532f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 17.532 - 19.251s = no spin (1.719s)
+        if (t < 19.251f)
+            return;
+
+        // 19.251 - 20.809s = normal spin (1.558s)
+        if (t < 20.809f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 20.809 - 22.461s = no spin (1.652s)
+        if (t < 22.461f)
+            return;
+
+        // 22.461 - 24 .059s = normal spin (2.598s)
+        if (t < 24.059f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 24.059 - 25.656s = no spin (1.652s)
+        if (t < 25.656f)
+            return;
+
+        // 25.059 - 29.653s = 
+        if (t < 29.653f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 29.653 - 32.058 - cat continues to spin cat rises up
+        // TODO: y axis transform goes up
+
+        // 45.301s = normal spin (19.648s)
+        if (t < 45.301f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // 45.301 - 58.126s = normal spin continues (12.825s)
+        if (t < 58.126f)
+        {
+            RotateNormal();
+            return;
+        }
+
+        // After 58.126s → sequence done, but cat stays visible
+    }
+
+    private void RotateNormal()
+    {
+        transform.Rotate(0f, normalSpinSpeed * Time.deltaTime, 0f);
+    }
+
+    private void RotateSlow()
+    {
+        transform.Rotate(0f, slowSpinSpeed * Time.deltaTime, 0f);
     }
 }
