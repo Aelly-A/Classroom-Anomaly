@@ -44,7 +44,7 @@ public class AnomalyManager : MonoBehaviour
             ResetAnomalyTracker();
         }
 
-        GameObject chosenAnomalyObject = anomalies[9]; //Random.Range(0, anomalies.Count)
+        GameObject chosenAnomalyObject = anomalies[Random.Range(0, anomalies.Count)]; 
         Anomaly chosenAnomaly = chosenAnomalyObject.GetComponent<Anomaly>();
         Debug.Log("Randomly chosen Anomaly: " + chosenAnomaly);
 

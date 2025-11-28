@@ -20,7 +20,10 @@ public class OIIAII_anomaly : Anomaly
     private void SetChildrenActive(bool state)
     {
         foreach (Transform child in transform)
-        {
+        {   
+             if (child.CompareTag("IgnoreAnomaly"))
+                continue;
+                
             child.gameObject.SetActive(state);
         }
     }

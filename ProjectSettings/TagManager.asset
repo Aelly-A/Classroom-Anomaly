@@ -8,6 +8,7 @@ TagManager:
   - Chair
   - Professor
   - Door
+  - IgnoreAnomaly
   layers:
   - Default
   - TransparentFX

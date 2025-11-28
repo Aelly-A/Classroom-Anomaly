@@ -6,6 +6,8 @@ public class Car_anomaly : MonoBehaviour
     public AudioSource carAudioSource;
     public ParticleSystem catParticles;
     public Transform player;
+    public GameObject redLight;
+    public CatSpin[] extraCats;
 
     [Header("Timing")]
     public float triggerTime = 2f;
@@ -21,6 +23,7 @@ public class Car_anomaly : MonoBehaviour
     private bool playerInside = false;
 
     private Quaternion originalRotation;
+    public GameObject gateObject;
 
     void Start()
     {
@@ -33,6 +36,10 @@ public class Car_anomaly : MonoBehaviour
         if (sequenceRunning)
         {
             sequenceTime += Time.deltaTime;
+            foreach (var c in extraCats)
+            {
+                c.Trigger(sequenceTime);
+            }
 
             // Lock sequence once we cross trigger time
             if (sequenceTime >= triggerTime)
@@ -40,16 +47,21 @@ public class Car_anomaly : MonoBehaviour
 
             UpdateParticles();
             UpdateCatSpin();
+            
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (!other.CompareTag("Player"))
             return;
 
         playerInside = true;
 
+        if (gateObject != null)
+            gateObject.SetActive(true);
+                    
         // If sequence already locked, re-entering does nothing
         if (sequenceLocked)
             return;
@@ -169,6 +181,8 @@ public class Car_anomaly : MonoBehaviour
         // 6.262 - 7.963s = normal spin (1.701s)
         if (t < 8.140f)
         {
+            if (redLight != null)
+                redLight.SetActive(true);
             RotateNormal();
             return;
         }
@@ -265,8 +279,6 @@ public class Car_anomaly : MonoBehaviour
             transform.position += Vector3.up * riseSpeed * Time.deltaTime;
             return;
         }
-        // TODO: y axis transform goes up
-
         //
 
         // 45.301s = normal spin (19.648s)
@@ -283,10 +295,19 @@ public class Car_anomaly : MonoBehaviour
             return;
         }
 
-        // After 58.126s → sequence done, but cat stays visible
+        // After 58.126s -> sequence done, but cat stare
         if (t >= 58.126f)
         {
-            ReturnToOriginalRotation();
+            // No more additional cats
+            foreach (var c in extraCats)
+                c.Deactivate();
+
+            // No more invisiible wall    
+            if (gateObject != null)
+                gateObject.SetActive(false);
+        
+            ReturnToOriginalRotation(); //stares at player
+            
             return;
         }
     }
