@@ -305,7 +305,10 @@ public class Car_anomaly : MonoBehaviour
             // No more invisiible wall    
             if (gateObject != null)
                 gateObject.SetActive(false);
-        
+
+             if (redLight != null)
+                redLight.SetActive(false);
+
             ReturnToOriginalRotation(); //stares at player
             
             return;
