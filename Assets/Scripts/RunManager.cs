@@ -1,7 +1,8 @@
-using System.Collections;
-using UnityEngine;
-using TMPro;
 using System;
+using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RunManager : MonoBehaviour
 {
@@ -83,7 +84,8 @@ public class RunManager : MonoBehaviour
         if (runCounter == totalRuns)
         {
             anomalyManager.GetComponent<AnomalyManager>().ResetRound(runCounter);
-            // Player win screen
+            SceneManager.LoadScene("VictoryScreen");
+            yield break;
         }
 
         roundHasBegun = false;
