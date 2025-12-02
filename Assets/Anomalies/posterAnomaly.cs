@@ -2,31 +2,28 @@ using UnityEngine;
 
 public class PosterAnomaly : Anomaly
 {
-    private Texture originalTexture;
-    private Texture catTexture;
-    private Renderer posterRenderer;
+    public GameObject catPoster;   // Reference to your cat sprite object
 
     void Start()
     {
-        posterRenderer = GetComponent<Renderer>();
-
-        if (posterRenderer != null)
-            originalTexture = posterRenderer.material.mainTexture;
-
-        catTexture = Resources.Load<Texture>("CatPoster");
+        // Make sure it's hidden at the start
+        if (catPoster != null)
+            catPoster.SetActive(false);
     }
 
     public override void Activate()
     {
         Debug.Log("Poster Anomaly Activated");
-        if (posterRenderer != null && catTexture != null)
-            posterRenderer.material.mainTexture = catTexture;
+
+        if (catPoster != null)
+            catPoster.SetActive(true);
     }
 
     public override void Deactivate()
     {
         Debug.Log("Poster Anomaly Deactivated");
-        if (posterRenderer != null && originalTexture != null)
-            posterRenderer.material.mainTexture = originalTexture;
+
+        if (catPoster != null)
+            catPoster.SetActive(false);
     }
 }
