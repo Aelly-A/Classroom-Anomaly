@@ -16,6 +16,7 @@ public class RunManager : MonoBehaviour
     private bool roundHasEnded = false; // i.e. roundHasBegun and the player has left the room
     private bool playerEnteredThroughRightDoor = false;
     private bool allowCollisions = true;
+    public FadeController fadeController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,7 +41,7 @@ public class RunManager : MonoBehaviour
             bool anomalyIsActive = anomalyManager.GetComponent<AnomalyManager>().anomalyIsActive;
             bool playerMadeRightChoice = (playerExitedThroughEntryDoor && anomalyIsActive) || (!playerExitedThroughEntryDoor && !anomalyIsActive);
 
-            FinishRound(playerMadeRightChoice);
+            StartCoroutine(FinishRound(playerMadeRightChoice));
         }
         // Player enters classroom
         else if (!roundHasBegun && !roundHasEnded && (other.name == "door_frame_right" || other.name == "door_frame_left") && allowCollisions)
@@ -62,8 +63,9 @@ public class RunManager : MonoBehaviour
         allowCollisions = true;
     }
 
-    void FinishRound(bool playerMadeRightChoice)
+    IEnumerator FinishRound(bool playerMadeRightChoice)
     {
+        yield return fadeController.FadeOut();
         // Player chose correct door or there is no anomaly
         if (playerMadeRightChoice)
         {
@@ -91,5 +93,11 @@ public class RunManager : MonoBehaviour
         String roundText = $"Round:\n{runCounter} / {totalRuns}";
         roundTextRight.GetComponent<TextMeshPro>().text = roundText;
         roundTextLeft.GetComponent<TextMeshPro>().text = roundText;
+
+        yield return new WaitForSeconds(0.1f);
+
+        // Fade in AFTER room loads
+        yield return fadeController.FadeIn();
+
     }
 }

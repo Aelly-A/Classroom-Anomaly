@@ -9,9 +9,21 @@ public class FadeController : MonoBehaviour
     public int blinkCount = 1;           // how many blinks at start
     public float pauseBetweenBlinks = 0.03f;
 
-    private void Start()
+    public static bool blinkedOnce = false;
+
+    void Start()
     {
-        StartCoroutine(BlinkSequence());
+
+        Debug.Log("FadeController Start running");
+        if (!blinkedOnce)
+        {
+            blinkedOnce = true;
+            StartCoroutine(BlinkSequence());
+        }
+        else
+        {
+            StartCoroutine(FadeIn());
+        }
     }
 
     private IEnumerator BlinkSequence()

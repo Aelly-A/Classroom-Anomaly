@@ -7663,6 +7663,7 @@ MonoBehaviour:
   exitSignManager: {fileID: 1253899106}
   roundTextRight: {fileID: 1180941255}
   roundTextLeft: {fileID: 1056567314}
+  fadeController: {fileID: 900769854}
 --- !u!114 &600072431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11537,7 +11538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 314197699}
-  fadeDuration: 0.15
+  fadeDuration: 0.3
   blinkCount: 1
   pauseBetweenBlinks: 0.03
 --- !u!225 &900769855
