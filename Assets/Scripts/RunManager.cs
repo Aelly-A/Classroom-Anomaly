@@ -74,6 +74,7 @@ public class RunManager : MonoBehaviour
         }
         else // Player chose wrong door
         {
+            // yield return StartCoroutine(fadeController.PlayDeathScene());
             runCounter = 0;
             anomalyManager.GetComponent<AnomalyManager>().ResetGame();
         }
