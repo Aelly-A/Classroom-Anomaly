@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class RunManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class RunManager : MonoBehaviour
     public int totalRuns = 7;
     public GameObject anomalyManager;
     public GameObject exitSignManager;
+    public GameObject roundTextRight;
+    public GameObject roundTextLeft;
     private bool roundHasBegun = false; // i.e. player has entered the room
     private bool roundHasEnded = false; // i.e. roundHasBegun and the player has left the room
     private bool playerEnteredThroughRightDoor = false;
@@ -84,6 +88,8 @@ public class RunManager : MonoBehaviour
         
         // Teleport player to spawn
         // fade to black;
-
+        String roundText = $"Round:\n{runCounter} / {totalRuns}";
+        roundTextRight.GetComponent<TextMeshPro>().text = roundText;
+        roundTextLeft.GetComponent<TextMeshPro>().text = roundText;
     }
 }
