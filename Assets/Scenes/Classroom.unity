@@ -7658,6 +7658,7 @@ MonoBehaviour:
   runCounter: 0
   totalRuns: 7
   anomalyManager: {fileID: 1908859577}
+  exitSignManager: {fileID: 1253899106}
 --- !u!114 &600072431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13326,6 +13327,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014583063}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1023706249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9b99f66b0c94ba4690201b72957b1c3, type: 3}
+  m_PrefabInstance: {fileID: 1541701154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1027603208
 GameObject:
   m_ObjectHideFlags: 0
@@ -15931,7 +15937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fcda78e866ee158448e7cde8c7cd6af9, type: 3}
       propertyPath: m_Name
-      value: Exit Sign (1)
+      value: Right Exit Sign (Red)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16075,6 +16081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253899107}
+  - component: {fileID: 1253899108}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -16106,6 +16113,22 @@ Transform:
   - {fileID: 1614744972}
   m_Father: {fileID: 1938900809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1253899108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253899106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf367b418be630448cb1ef2e7a47243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftRedExitSign: {fileID: 2006900651}
+  leftGreenExitSign: {fileID: 1023706249}
+  rightRedExitSign: {fileID: 1553081249}
+  rightGreenExitSign: {fileID: 1831049797}
 --- !u!1001 &1264702701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18430,7 +18453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a9b99f66b0c94ba4690201b72957b1c3, type: 3}
       propertyPath: m_Name
-      value: exitSign(Green) (1)
+      value: Right Exit Sign (Green)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a9b99f66b0c94ba4690201b72957b1c3, type: 3}
       propertyPath: m_IsActive
@@ -18781,7 +18804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a9b99f66b0c94ba4690201b72957b1c3, type: 3}
       propertyPath: m_Name
-      value: exitSign(Green)
+      value: Left Exit Sign (Green)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a9b99f66b0c94ba4690201b72957b1c3, type: 3}
       propertyPath: m_IsActive
@@ -18915,6 +18938,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548534455}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1553081249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fcda78e866ee158448e7cde8c7cd6af9, type: 3}
+  m_PrefabInstance: {fileID: 1251564834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1554598530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19471,7 +19499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fcda78e866ee158448e7cde8c7cd6af9, type: 3}
       propertyPath: m_Name
-      value: Exit Sign
+      value: Left Exit Sign (Red)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fcda78e866ee158448e7cde8c7cd6af9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27367,6 +27399,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818616255}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1831049797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9b99f66b0c94ba4690201b72957b1c3, type: 3}
+  m_PrefabInstance: {fileID: 1521550145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1831104024
 GameObject:
   m_ObjectHideFlags: 0
@@ -29544,6 +29581,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001417341}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2006900651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fcda78e866ee158448e7cde8c7cd6af9, type: 3}
+  m_PrefabInstance: {fileID: 1590205088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2010271396
 GameObject:
   m_ObjectHideFlags: 0
@@ -37478,9 +37520,9 @@ Transform:
   m_GameObject: {fileID: 7780818869130880284}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.48, y: -0.3, z: 2.52}
-  m_LocalScale: {x: 0.80000013, y: 0.8, z: 0.80000013}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 28.752, y: 0.225, z: 1.993}
+  m_LocalScale: {x: 0.80000013, y: 0.8, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1938900809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

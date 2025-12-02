@@ -7,6 +7,7 @@ public class RunManager : MonoBehaviour
     public int runCounter = 0;
     public int totalRuns = 7;
     public GameObject anomalyManager;
+    public GameObject exitSignManager;
     private bool roundHasBegun = false; // i.e. player has entered the room
     private bool roundHasEnded = false; // i.e. roundHasBegun and the player has left the room
     private bool playerEnteredThroughRightDoor = false;
@@ -44,6 +45,7 @@ public class RunManager : MonoBehaviour
 
             roundHasBegun = true;
             playerEnteredThroughRightDoor = other.name == "door_frame_right";      
+            exitSignManager.GetComponent<ExitSignManager>().UpdateExitSignColor(playerEnteredThroughRightDoor);
         }
 
         StartCoroutine(ColissionCooldown());
