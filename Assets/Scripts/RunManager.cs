@@ -83,8 +83,10 @@ public class RunManager : MonoBehaviour
         // playerHasWon
         if (runCounter == totalRuns)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             anomalyManager.GetComponent<AnomalyManager>().ResetRound(runCounter);
-            SceneManager.LoadScene("VictoryScreen");
+            SceneManager.LoadScene("Victory");
             yield break;
         }
 
