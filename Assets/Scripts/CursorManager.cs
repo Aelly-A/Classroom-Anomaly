@@ -2,19 +2,12 @@ using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Hide the cursor
+        // Hides the cursor at start of game
         Cursor.visible = false;
 
-        // Lock the cursor to the center of the screen
+        // Locks the cursor to the center of the screen
         Cursor.lockState = CursorLockMode.Locked; 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
