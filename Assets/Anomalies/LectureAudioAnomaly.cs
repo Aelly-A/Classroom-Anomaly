@@ -68,6 +68,7 @@ public class LectureAudioAnomaly : Anomaly
             StopCoroutine(oscillationRoutine);
 
         audioSource.pitch = 1f; // reset pitch
+        audioSource.Stop();
         oscillationRoutine = null;
     }
 }

@@ -55,4 +55,28 @@ public class Dialogue : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    public void AddLine(string line)
+    {
+        // Activate the dialogue box if it’s inactive
+        if (!gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+        }
+
+        // Replace previous lines with the new line
+        lines = new string[] { line };
+
+        // Reset index to 0
+        index = 0;
+
+        // Stop any typing in progress
+        StopAllCoroutines();
+
+        // Clear any existing text
+        textComponent.text = string.Empty;
+
+        // Start typing the new line
+        StartCoroutine(TypeLine());
+    }
 }

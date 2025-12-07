@@ -4,6 +4,7 @@ using System.Collections;
 public class SmokeDetector : Anomaly
 {
     public AudioSource audioSource;
+    public AnomalyCaption captions;
 
     [Header("Beep Timing")]
     public float baseInterval = 1.0f;      // how often we check for a beep
@@ -25,6 +26,14 @@ public class SmokeDetector : Anomaly
         {
             Debug.Log("Beep (vol " + audioSource.volume + ")");
             audioSource.Play();
+            if (captions != null)
+            {
+                if (!captions.gameObject.activeSelf)
+                {
+                    captions.gameObject.SetActive(true);
+                }
+                captions.ShowCaption("beep", this.transform);
+            }
         }
         else
         {

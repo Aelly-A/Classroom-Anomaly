@@ -4,12 +4,13 @@ using System.Collections;
 public class SoundAnomaly : Anomaly
 {
     [Header("Sound Settings")]
-    public AudioClip[] anomalyClips;      // list of possible sounds
+    public AudioClip[] anomalyClips; // list of possible sounds
     public float minDelay = 2f;
     public float maxDelay = 6f;
 
     [Header("Sound Locations")]
-    public Transform[] soundPoints;       // your wall point objects
+    public Transform[] soundPoints; // your wall point objects
+    public AnomalyCaption captions;
 
     private bool isActive = false;
     private Coroutine soundRoutine;
@@ -50,11 +51,19 @@ public class SoundAnomaly : Anomaly
         // Pick a random sound clip
         AudioClip clip = anomalyClips[Random.Range(0, anomalyClips.Length)];
 
-        // Get saved volume from PlayerPrefs (default 1)
+        // Get saved volume from PlayerPrefs
         float volume = PlayerPrefs.GetFloat("VolumeKey", 0.75f);
 
         // Play sound at that position with saved volume
         AudioSource.PlayClipAtPoint(clip, point.position, volume);
+        // if (captions != null)
+        // {
+        //     if (!captions.gameObject.activeSelf)
+        //     {
+        //         captions.gameObject.SetActive(true);
+        //     }
+        //     captions.ShowCaption("scratching", point);
+        // }
     }
 }
 

@@ -6,6 +6,7 @@ public class LaptopReplacementAnomaly : Anomaly
     public GameObject laptop;
     public GameObject replacement;
     public AudioSource audioSource;
+    public AnomalyCaption captions;
     
     public override void Activate()
     {
@@ -34,6 +35,14 @@ public class LaptopReplacementAnomaly : Anomaly
         {
             Debug.Log("SFX");
             audioSource.Play();
+            if (captions != null)
+            {
+                if (!captions.gameObject.activeSelf)
+                {
+                    captions.gameObject.SetActive(true);
+                }
+                captions.ShowCaption("hiss", this.transform);
+            }
         }
         else
         {
