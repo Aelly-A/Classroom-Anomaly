@@ -35,7 +35,8 @@ public class LaptopReplacementAnomaly : Anomaly
         {
             Debug.Log("SFX");
             audioSource.Play();
-            if (captions != null)
+            int closedCaptions = PlayerPrefs.GetInt("CC_KEY", 0);
+            if (captions != null && closedCaptions == 1)
             {
                 if (!captions.gameObject.activeSelf)
                 {

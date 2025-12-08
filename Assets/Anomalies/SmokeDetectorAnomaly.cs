@@ -26,7 +26,8 @@ public class SmokeDetector : Anomaly
         {
             Debug.Log("Beep (vol " + audioSource.volume + ")");
             audioSource.Play();
-            if (captions != null)
+            int closedCaptions = PlayerPrefs.GetInt("CC_KEY", 0);
+            if (captions != null && closedCaptions == 1)
             {
                 if (!captions.gameObject.activeSelf)
                 {

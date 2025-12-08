@@ -45,7 +45,7 @@ public class AnomalyManager : MonoBehaviour
         }
 
         // For testing purposes
-        // GameObject chosenAnomalyObject = anomalies[3];
+        // GameObject chosenAnomalyObject = anomalies[4];
 
         // Choose a random anomaly for the round
         GameObject chosenAnomalyObject = anomalies[Random.Range(0, anomalies.Count)]; 

@@ -6,7 +6,7 @@ public class AnomalyCaption : MonoBehaviour
 {
     public TextMeshProUGUI captionText;
     public float textSpeed = 0.05f; 
-    public float displayTime = 3f;
+    public float displayTime = 2.5f;
     public Vector3 offset = new Vector3(0, 2f, 0); // above the anomaly
 
     private Coroutine typingCoroutine;

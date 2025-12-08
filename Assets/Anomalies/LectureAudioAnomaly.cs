@@ -4,6 +4,7 @@ using System.Collections;
 public class LectureAudioAnomaly : Anomaly
 {
     public AudioSource audioSource;
+    public AnomalyCaption captions;
 
     [Header("Pitch Oscillation Settings")]
     public float minPitch = 0.8f;         // lowest speed
@@ -50,6 +51,17 @@ public class LectureAudioAnomaly : Anomaly
 
     public override void Activate()
     {
+        int closedCaptions = PlayerPrefs.GetInt("CC_KEY", 0);
+        if (captions != null && closedCaptions == 1)
+        {
+            if (!captions.gameObject.activeSelf)
+            {
+                captions.gameObject.SetActive(true);
+            }
+            captions.displayTime = 9999f;
+            captions.ShowCaption("lecturing", this.transform);
+        }
+        
         float volume = PlayerPrefs.GetFloat("VolumeKey", 0.75f);
         audioSource.volume = volume;
 
@@ -64,10 +76,15 @@ public class LectureAudioAnomaly : Anomaly
 
     public override void Deactivate()
     {
+        captions.displayTime = 2.5f;
+        if(captions != null && captions.gameObject.activeSelf) 
+        {
+            captions.gameObject.SetActive(false);
+        }
         if (oscillationRoutine != null)
             StopCoroutine(oscillationRoutine);
 
-        audioSource.pitch = 1f; // reset pitch
+        audioSource.pitch = 1f;
         audioSource.Stop();
         oscillationRoutine = null;
     }
