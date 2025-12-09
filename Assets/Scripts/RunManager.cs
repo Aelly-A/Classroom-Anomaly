@@ -18,6 +18,7 @@ public class RunManager : MonoBehaviour
     private bool playerEnteredThroughRightDoor = false;
     private bool allowCollisions = true;
     public FadeController fadeController;
+    public Dialogue dialogue;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,6 +79,15 @@ public class RunManager : MonoBehaviour
             // yield return StartCoroutine(fadeController.PlayDeathScene());
             runCounter = 0;
             anomalyManager.GetComponent<AnomalyManager>().ResetGame();
+        }
+
+        // Dialogue to indicate exit sign switch on round 1 (first time only)
+        int exitSignHint = PlayerPrefs.GetInt("ExitSignHintKey", 0);
+        if(dialogue != null && runCounter == 1 && exitSignHint == 0) 
+        {
+            dialogue.AddLine("Ah, the exit sign colors switch sometimes.... I need to be careful.");
+            PlayerPrefs.SetInt("ExitSignHintKey", 1);
+            PlayerPrefs.Save();
         }
 
         // playerHasWon
