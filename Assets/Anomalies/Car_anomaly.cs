@@ -23,11 +23,13 @@ public class Car_anomaly : MonoBehaviour
     private bool playerInside = false;
 
     private Quaternion originalRotation;
+    private Vector3 originalPosition;
     public GameObject gateObject;
 
     void Start()
     {
         originalRotation = transform.rotation;
+        originalPosition = transform.position;
     }
 
     void Update()
@@ -85,6 +87,8 @@ public class Car_anomaly : MonoBehaviour
 
     private void StartSequence()
     {
+        Debug.Log("Start sequence called. sequenceRunning=" + sequenceRunning + " time=" + sequenceTime);
+
         sequenceRunning = true;
         sequenceTime = 0f;
 
@@ -99,11 +103,13 @@ public class Car_anomaly : MonoBehaviour
             catParticles.Stop();
     }
 
-    private void ResetSequence()
+    public void ResetSequence()
     {
         sequenceRunning = false;
         sequenceTime = 0f;
-        ReturnToOriginalRotation();
+        sequenceLocked = false;
+        playerInside = false;
+        transform.rotation = originalRotation;
 
         if (carAudioSource != null)
         {
@@ -113,6 +119,11 @@ public class Car_anomaly : MonoBehaviour
 
         if (catParticles != null)
             catParticles.Stop();
+
+        // Reset positon to ground
+        transform.position = originalPosition;
+
+        Debug.Log("RESET CALLED. sequenceRunning=" + sequenceRunning + " time=" + sequenceTime);
     }
 
     private void UpdateParticles()

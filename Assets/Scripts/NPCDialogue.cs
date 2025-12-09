@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class NPCDialogue : MonoBehaviour
 {
-     public GameObject dialogueBox;         // Assign DialogueBox prefab/UI
+    public GameObject dialogueBox;         // Assign DialogueBox prefab/UI
+    public AudioSource audioSource;
     [TextArea(3,5)]
     public string[] npcLines;              // Each NPC can have its own lines
 
@@ -20,10 +21,16 @@ public class NPCDialogue : MonoBehaviour
        if (other.CompareTag("Player"))
         {
             dialogueBox.SetActive(true);
-
+            
             // Override the DialogueBox lines with this NPC's lines
             dialogueScript.lines = npcLines;
-            dialogueScript.StartDialogue(); 
+            dialogueScript.StartDialogue();
+            
+            // Play audio
+            if(audioSource != null) 
+            {
+                audioSource.Play();
+            }
         }
     }
 
