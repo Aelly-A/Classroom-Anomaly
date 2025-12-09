@@ -85,7 +85,7 @@ public class RunManager : MonoBehaviour
         int exitSignHint = PlayerPrefs.GetInt("ExitSignHintKey", 0);
         if(dialogue != null && runCounter == 1 && exitSignHint == 0) 
         {
-            dialogue.AddLine("Ah, the exit sign colors switch sometimes.... I need to be careful.");
+            dialogue.AddLine("Ah, the exit door colors switch when I walk through the green exit door.... I need to be careful.");
             PlayerPrefs.SetInt("ExitSignHintKey", 1);
             PlayerPrefs.Save();
         }

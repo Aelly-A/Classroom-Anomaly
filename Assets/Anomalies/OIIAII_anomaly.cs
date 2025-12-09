@@ -20,6 +20,11 @@ public class OIIAII_anomaly : Anomaly
 
     public override void Deactivate()
     {
+        foreach (var child in GetComponentsInChildren<Car_anomaly>())
+        {
+            child.ResetSequence();
+        }
+        
         SetChildrenActive(false);
     }
 

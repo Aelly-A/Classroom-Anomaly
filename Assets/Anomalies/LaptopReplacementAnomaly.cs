@@ -12,9 +12,6 @@ public class LaptopReplacementAnomaly : Anomaly
     {
         base.Activate();
 
-        float volume = PlayerPrefs.GetFloat("VolumeKey", 0.75f);
-        audioSource.volume = volume;
-
         laptop.SetActive(false);
         replacement.SetActive(true);
         InvokeRepeating(nameof(SFX), 0f, 1f);

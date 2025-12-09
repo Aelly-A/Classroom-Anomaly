@@ -8,6 +8,7 @@ public class AlexResizeAnomaly : Anomaly
     public bool shrinkAnomaly = false;
 
     Vector3 startingScale;
+    Vector3 startingPosition;
     bool stillResizing = false;
 
 
@@ -16,6 +17,7 @@ public class AlexResizeAnomaly : Anomaly
     {
         profAlex.SetActive(true);
         startingScale = profAlex.transform.localScale;
+        startingPosition = profAlex.transform.localPosition;
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class AlexResizeAnomaly : Anomaly
     {
         stillResizing = false;
         profAlex.transform.localScale = startingScale;
+        profAlex.transform.localPosition = startingPosition;
         base.Deactivate();
     }
 }

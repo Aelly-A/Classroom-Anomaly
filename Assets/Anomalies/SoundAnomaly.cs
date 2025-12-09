@@ -52,11 +52,10 @@ public class SoundAnomaly : Anomaly
         AudioClip clip = anomalyClips[Random.Range(0, anomalyClips.Length)];
 
         // Get saved volume from PlayerPrefs
-        float volume = PlayerPrefs.GetFloat("VolumeKey", 0.75f);
         int closedCaptions = PlayerPrefs.GetInt("CC_KEY", 0);
 
         // Play sound at that position with saved volume
-        AudioSource.PlayClipAtPoint(clip, point.position, volume);
+        AudioSource.PlayClipAtPoint(clip, point.position, 0.5f);
         // if (captions != null && closedCaptions == 1)
         // {
         //     if (!captions.gameObject.activeSelf)

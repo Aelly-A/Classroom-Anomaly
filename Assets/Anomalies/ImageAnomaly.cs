@@ -110,8 +110,6 @@ public class ImageAnomaly : Anomaly
             return;
 
         AudioClip clip = spawnSounds[Random.Range(0, spawnSounds.Length)];
-        float volume = PlayerPrefs.GetFloat("VolumeKey", 0.75f);
-
-        AudioSource.PlayClipAtPoint(clip, pos, volume);
+        AudioSource.PlayClipAtPoint(clip, pos, 1.0f);
     }
 }

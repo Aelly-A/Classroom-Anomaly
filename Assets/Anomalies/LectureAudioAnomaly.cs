@@ -61,9 +61,6 @@ public class LectureAudioAnomaly : Anomaly
             captions.displayTime = 9999f;
             captions.ShowCaption("lecturing", this.transform);
         }
-        
-        float volume = PlayerPrefs.GetFloat("VolumeKey", 0.75f);
-        audioSource.volume = volume;
 
         if (!audioSource.isPlaying)
             audioSource.Play();
