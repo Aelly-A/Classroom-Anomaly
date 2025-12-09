@@ -332,6 +332,13 @@ MonoBehaviour:
 
 
 
+
+    Assets
+
+
+
+
+
     Special Thanks'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb7db222aa68b30498b7ed7683ec96e2, type: 2}
@@ -708,7 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8037735, g: 0.8037735, b: 0.8037735, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1172,12 +1179,24 @@ MonoBehaviour:
 
 
 
-    freesound_community
+    Pixabay - freesound_community
 
-    W&W - OIIA OIIA (Spinning Cat)
+    W&W - OIIA OIIA (Spinning
+    Cat)
 
-    Brandon75689
-    - cave theme
+    Brandon75689 - cave theme
+
+    Centurion_of_war - Credits music
+
+
+
+
+
+    Unity
+    Asset Store
+
+    Roblox - DOORS (jumpscares)
+
 
 
 
@@ -1185,7 +1204,6 @@ MonoBehaviour:
 
     Alexandre Gomes de Siqueira
 
-    Unity Asset Store
 
 '
   m_isRightToLeft: 0

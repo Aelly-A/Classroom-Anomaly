@@ -6031,7 +6031,6 @@ GameObject:
   m_Component:
   - component: {fileID: 412849646}
   - component: {fileID: 412849645}
-  - component: {fileID: 412849647}
   - component: {fileID: 412849648}
   m_Layer: 0
   m_Name: Managers
@@ -6053,6 +6052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsMenuPanel: {fileID: 7908487814778144350}
+  settingsIcon: {fileID: 103285350411892996}
 --- !u!4 &412849646
 Transform:
   m_ObjectHideFlags: 0
@@ -6068,18 +6068,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &412849647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412849644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 239b610136e809e46ab90c9039cf43ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &412849648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33896,7 +33884,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2d40e006723de9449b347b577c0c6926, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -36237,7 +36225,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 412849648}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: SetVolumeFromSlider
         m_Mode: 0
