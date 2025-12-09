@@ -14,7 +14,7 @@ public class SettingsManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; 
     }
 
-    void LateUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             ToggleSettingsMenu();
