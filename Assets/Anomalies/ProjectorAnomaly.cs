@@ -81,7 +81,6 @@ public class ProjectorAnomaly : Anomaly
         whiteboardRight.SetActive(false);
         
         // Start the flickering loop
-        if (flickerRoutine != null) StopCoroutine(flickerRoutine);
         flickerRoutine = StartCoroutine(FlickerLoop());
     }
 
@@ -90,9 +89,10 @@ public class ProjectorAnomaly : Anomaly
         // Stop the flicker loop
         if (flickerRoutine != null) StopCoroutine(flickerRoutine);
         flickerRoutine = null;
-
+        
+        CancelInvoke();
         // Reset to normal scene state (Projector ON, Whiteboards ON)
-        projectorVisuals.SetActive(true);
+        projectorVisuals.SetActive(false);
         whiteboardLeft.SetActive(true);
         whiteboardRight.SetActive(true);
         
